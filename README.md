@@ -1,6 +1,4 @@
-# ExtendedMatTable
-
-
+A simple and powerful Datatable for Angular based on Angular Mat Table with some additional features
 ## Install
 
 Using npm:
@@ -49,3 +47,31 @@ Add material theme:
 [https://codesandbox.io/s/unruffled-glitter-z1xve?file=/src/app/app.component.html](https://codesandbox.io/s/unruffled-glitter-z1xve?file=/src/app/app.component.html)
 
 ![Image of Demo](https://github.com/kerrexwong/ExtendedMatTable/raw/main/src/assets/screenshot.png)
+
+
+
+## Available Options
+
+
+| Variable           | Default Value |
+|--------------------|---------------|
+| buttonColor        | #23758e       |
+| exportPrefix       | ex_           |
+| enableButton       | true          |
+| enableFilter       | true          |
+| enableColumnFilter | true          |
+| hiddenColumnsIndex | number[]      |
+
+
+```
+import { Options } from 'extended-mat-table';
+
+
+public options:Options = {
+    hiddenColumnsIndex:[5]
+  }
+```
+
+```
+<app-extended-mat-table [data]="data" [columns]="column" [options]="options"></app-extended-mat-table>
+```

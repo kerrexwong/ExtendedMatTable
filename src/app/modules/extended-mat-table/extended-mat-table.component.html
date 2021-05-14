@@ -36,7 +36,7 @@
     </ng-container>
 
     <ng-container [matColumnDef]="item.data" *ngFor="let item of columns">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header [disabled]="columnFilter"><div class="d-flex flex-column"><span class="theader_block">{{item.title}}</span><span *ngIf="columnFilter"><input matInput (keyup)="applyColumnFilter($event, item)" placeholder="search.." [disabled]="fetching"></span></div></th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header [disabled]="_options.columnFilter"><div class="d-flex flex-column"><span class="theader_block">{{item.title}}</span><span *ngIf="_options.columnFilter"><input matInput (keyup)="applyColumnFilter($event, item)" placeholder="search.." [disabled]="fetching"></span></div></th>
       <td mat-cell *matCellDef="let element">
         <div *ngIf="!_options.enableClickOnDetail" title="{{render(element[item.data], item.render,element)}}" [ngClass]="{'white-space-pre':item.wrap_text,'white-space-nowrap':!item.wrap_text}" [innerHTML]="render(element[item.data], item.render,element)"></div>
         <div *ngIf="_options.enableClickOnDetail" (click)="onClickFunc(element,item)" title="{{render(element[item.data], item.render,element)}}" class="btn text-left px-0" [ngClass]="{'white-space-pre':item.wrap_text}" [innerHTML]="render(element[item.data], item.render,element)"></div>

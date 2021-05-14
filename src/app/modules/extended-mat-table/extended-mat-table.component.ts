@@ -7,30 +7,8 @@ import { MatButtonToggleChange } from '@angular/material/button-toggle';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { utils, writeFile } from 'xlsx';
 import { findIndex, filter, includes, pick, remove, size } from "lodash";
+import { Column, Options } from './extended-mat-table-interface';
 import * as moment from 'moment';
-
-interface Column {
-  title: string;
-  data: string;
-  wrap_text?: boolean;
-  render?: any;
-}
-interface Options {
-  tableId?: string;
-  pageIndex?: number;
-  pageSize?: number;
-  hiddenColumnsIndex?: number[];
-  htmlColumns?:any[];
-  buttonColor?: string;
-  exportPrefix?: string;
-  allowMultiSelection?: boolean;
-  enableRowSelection?: boolean;
-  enableBulkEdit?: boolean;
-  removeHTMLBeforeExport?: boolean;
-  enableClickOnDetail?: boolean;
-  enableButton?: boolean;
-  enableFilter?: boolean;
-}
 
 @Component({
   selector: 'app-extended-mat-table',
@@ -57,7 +35,7 @@ export class ExtendedMatTableComponent implements OnInit, AfterViewInit {
   public showColumns:boolean = false;
   public tableMinHeight:number = 0;
   public rowActions:any[] = [];
-  public columnFilter:boolean = false;
+  // public columnFilter:boolean = false;
 
   private pageNumbers: number[] = [];
   public _options:any = {
@@ -74,7 +52,8 @@ export class ExtendedMatTableComponent implements OnInit, AfterViewInit {
     removeHTMLBeforeExport: false,
     enableClickOnDetail: false,
     enableButton: true,
-    enableFilter: true
+    enableFilter: true,
+    enableColumnFilter: true,
   };
   
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -213,8 +192,8 @@ export class ExtendedMatTableComponent implements OnInit, AfterViewInit {
   }
 
   triggerColumnFilter(){
-    this.columnFilter = !this.columnFilter;
-    if(!this.columnFilter){
+    this._options.columnFilter = !this._options.columnFilter;
+    if(!this._options.columnFilter){
       this.dataSource.filter = "";
     }
   }
