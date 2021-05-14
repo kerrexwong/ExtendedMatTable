@@ -1,6 +1,7 @@
 {
   "name": "extended-mat-table",
-  "version": "1.0.7",
+  "version": "1.0.9",
+  "license" : "MIT",
   "repository": {
       "type": "git",
       "url": "https://github.com/kerrexwong/ExtendedMatTable.git"

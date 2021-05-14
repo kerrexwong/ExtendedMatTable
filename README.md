@@ -62,6 +62,7 @@ Add material theme:
 | enableColumnFilter | true          |
 | hiddenColumnsIndex | number[]      |
 
+<br>
 
 ```
 import { Options } from 'extended-mat-table';
