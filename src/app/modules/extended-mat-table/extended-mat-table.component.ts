@@ -12,6 +12,8 @@ import * as moment from 'moment';
 interface Column {
   title: string;
   data: string;
+  wrap_text?: boolean;
+  render?: any;
 }
 interface Options {
   tableId?: string;
@@ -80,7 +82,7 @@ export class ExtendedMatTableComponent implements OnInit, AfterViewInit {
   selection:any = new SelectionModel(this._options.allowMultiSelection, []);
   ngOnInit() {
     this._options = {...this._options, ...this.options};
-    if(size(this._options.hiddenColumnsIndex)!=0)
+    // if(size(this._options.hiddenColumnsIndex)!=0)
     this.displayedColumns = this.columns.filter((t,i)=>{
       return !includes(this._options.hiddenColumnsIndex,i);
     }).map(c=>c.data);

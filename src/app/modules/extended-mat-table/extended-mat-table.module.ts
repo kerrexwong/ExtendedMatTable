@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatCheckboxModule} from '@angular/material/checkbox';
-import {MatFormFieldModule} from '@angular/material/form-field';
+// import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
@@ -22,7 +22,7 @@ import { ExtendedMatTableComponent } from './extended-mat-table.component';
     MatButtonModule,
     MatButtonToggleModule,
     MatCheckboxModule,
-    MatFormFieldModule,
+    // MatFormFieldModule,
     MatInputModule,
     MatPaginatorModule,
     MatSortModule,
