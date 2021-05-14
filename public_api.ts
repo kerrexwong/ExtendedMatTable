@@ -1,0 +1,1 @@
+export * from './src/app/modules/extended-mat-table/extended-mat-table.module'

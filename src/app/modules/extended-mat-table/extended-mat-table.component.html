@@ -1,0 +1,69 @@
+<div class="extended-mat-table-container">
+  <div class="mat-filter-container">
+    <button mat-stroked-button *ngIf="_options.enableButton" [ngStyle]="{'background-color':_options.buttonColor}" class="filter-button" (click)="exportDocument('xlsx')">Excel</button>
+    <button mat-stroked-button *ngIf="_options.enableButton" [ngStyle]="{'background-color':_options.buttonColor}" class="filter-button" (click)="exportDocument('csv')">CSV</button>
+    <div class="columns_button" *ngIf="_options.enableButton" ><button mat-stroked-button [ngStyle]="{'background-color':_options.buttonColor}" class="filter-button" (click)="showColumns = !showColumns;toggleColumnSelectBoxAndCalculateTableMinHeight();">Columns</button>
+      <mat-button-toggle-group cdkDropList (cdkDropListDropped)="drop($event)"  name="fontStyle" aria-label="Font Style" multiple vertical (change)="onToggleChange($event)" *ngIf="showColumns">
+        <mat-button-toggle [value]="c" [checked]="checkIsColumnsDisplayed(c)" *ngFor="let c of availableColumns" cdkDrag>{{c}}</mat-button-toggle>
+      </mat-button-toggle-group>
+    </div>
+    <button mat-stroked-button [ngStyle]="{'background-color':_options.buttonColor}" class="filter-button" (click)="triggerColumnFilter()">Filter</button>
+    <button mat-stroked-button [ngStyle]="{'background-color':_options.buttonColor}" class="filter-button" *ngIf="_options.enableBulkEdit" (click)="toggleBulkEdit()">Bulk Edit</button>
+    <button mat-stroked-button class="bg-dark filter-button" *ngIf="_options.enableBulkEdit && selection.hasValue()" (click)="toggleBulkUpdate()">Edit Seleted</button>
+    <mat-form-field *ngIf="_options.enableFilter">
+      <mat-label>{{(fetching)?'Loading':'Filter'}}</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. sample" [disabled]="fetching">
+    </mat-form-field>
+  </div>
+  
+  <table class="extended-mat-table-block" mat-table [dataSource]="dataSource" matSort [ngStyle]="{'min-height.px':tableMinHeight}">
+
+    <ng-container matColumnDef="select">
+      <th mat-header-cell *matHeaderCellDef>
+        <mat-checkbox (change)="$event ? masterToggle() : null"
+                      [checked]="selection.hasValue() && isAllSelected()"
+                      [indeterminate]="selection.hasValue() && !isAllSelected()"
+                      [aria-label]="checkboxLabel()">
+        </mat-checkbox>
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <mat-checkbox (click)="$event.stopPropagation()"
+                      (change)="$event ? selection.toggle(element) : null"
+                      [checked]="selection.isSelected(element)"
+                      [aria-label]="checkboxLabel(element)">
+        </mat-checkbox>
+      </td>
+    </ng-container>
+
+    <ng-container [matColumnDef]="item.data" *ngFor="let item of columns">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header [disabled]="columnFilter"><div class="d-flex flex-column"><span class="theader_block">{{item.title}}</span><span *ngIf="columnFilter"><input matInput (keyup)="applyColumnFilter($event, item)" placeholder="search.." [disabled]="fetching"></span></div></th>
+      <td mat-cell *matCellDef="let element">
+        <div *ngIf="!_options.enableClickOnDetail" title="{{render(element[item.data], item.render,element)}}" [ngClass]="{'white-space-pre':item.wrap_text,'white-space-nowrap':!item.wrap_text}" [innerHTML]="render(element[item.data], item.render,element)"></div>
+        <div *ngIf="_options.enableClickOnDetail" (click)="onClickFunc(element,item)" title="{{render(element[item.data], item.render,element)}}" class="btn text-left px-0" [ngClass]="{'white-space-pre':item.wrap_text}" [innerHTML]="render(element[item.data], item.render,element)"></div>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
+      <td mat-cell *matCellDef="let element">
+        <div class="d-flex">
+          <button *ngFor="let act_button of rowActions"  mat-stroked-button class="bg-light mr-2 ml-1" (click)="act_button.action(element);selection.toggle(element)" [disabled]="fetching">{{act_button.title}}</button>
+        </div>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" [ngClass]="{'selected':selection.isSelected(row)}" (click)="toggleRowSelect(row)"></tr>
+  </table>
+
+  <div class="mat-pag-container">
+    <mat-paginator [length]="length" [pageSize]="_options.pageSize" [pageSizeOptions]="pageSizeOptions" showFirstLastButtons (page)="paginationChange($event)"></mat-paginator>
+    <div class="fetching" [ngClass]="{'show_s':fetching}"><span>fetching data...</span></div>
+    <div class="go-to-container">
+      <div class="go-to-label">Go To: </div>
+      <mat-form-field>
+        <input matInput type="number" [(ngModel)]="goTo" (keyup)="goToChange()">
+      </mat-form-field>
+    </div>
+  </div>
+</div>
