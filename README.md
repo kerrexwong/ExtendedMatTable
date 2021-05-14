@@ -46,7 +46,6 @@ Add material theme:
 
 ## Demo
 
-[Demo](https://codesandbox.io/s/unruffled-glitter-z1xve?file=/src/app/app.component.html)
+[https://codesandbox.io/s/unruffled-glitter-z1xve?file=/src/app/app.component.html](https://codesandbox.io/s/unruffled-glitter-z1xve?file=/src/app/app.component.html)
 
-
-
+![Image of Demo](https://github.com/kerrexwong/ExtendedMatTable/raw/main/src/assets/screenshot.png)
