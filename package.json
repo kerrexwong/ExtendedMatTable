@@ -1,12 +1,17 @@
 {
   "name": "extended-mat-table",
-  "version": "1.0.9",
-  "license" : "MIT",
+  "version": "1.0.10",
+  "license": "MIT",
   "repository": {
-      "type": "git",
-      "url": "https://github.com/kerrexwong/ExtendedMatTable.git"
+    "type": "git",
+    "url": "https://github.com/kerrexwong/ExtendedMatTable.git"
   },
-  "keywords":["Angular","dataTable","Material","Mat-table"],
+  "keywords": [
+    "angular",
+    "dataTable",
+    "material",
+    "mat-table"
+  ],
   "author": "Kerrex<kerrex@gmail.com>",
   "scripts": {
     "ng": "ng",

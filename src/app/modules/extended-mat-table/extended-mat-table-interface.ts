@@ -14,10 +14,11 @@ export interface Column {
     exportPrefix?: string;
     allowMultiSelection?: boolean;
     enableRowSelection?: boolean;
-    enableBulkEdit?: boolean;
     removeHTMLBeforeExport?: boolean;
     enableClickOnDetail?: boolean;
     enableButton?: boolean;
     enableFilter?: boolean;
     enableColumnFilter?: boolean;
+    selectedRowCallback?: any;
+    returnColumnsOrderCallback?: any;
   }

@@ -2,14 +2,14 @@
   <div class="mat-filter-container">
     <button mat-stroked-button *ngIf="_options.enableButton" [ngStyle]="{'background-color':_options.buttonColor}" class="filter-button" (click)="exportDocument('xlsx')">Excel</button>
     <button mat-stroked-button *ngIf="_options.enableButton" [ngStyle]="{'background-color':_options.buttonColor}" class="filter-button" (click)="exportDocument('csv')">CSV</button>
-    <div class="columns_button" *ngIf="_options.enableButton" ><button mat-stroked-button [ngStyle]="{'background-color':_options.buttonColor}" class="filter-button" (click)="showColumns = !showColumns;toggleColumnSelectBoxAndCalculateTableMinHeight();">Columns</button>
+    <div class="columns_button" *ngIf="_options.enableButton" ><button mat-stroked-button [ngStyle]="{'background-color':_options.buttonColor}" class="filter-button" (click)="showColumns = !showColumns;triggerColumnSelectBoxAndCalculateTableMinHeight();">Columns</button>
       <mat-button-toggle-group cdkDropList (cdkDropListDropped)="drop($event)"  name="fontStyle" aria-label="Font Style" multiple vertical (change)="onToggleChange($event)" *ngIf="showColumns">
         <mat-button-toggle [value]="c" [checked]="checkIsColumnsDisplayed(c)" *ngFor="let c of availableColumns" cdkDrag>{{c}}</mat-button-toggle>
       </mat-button-toggle-group>
     </div>
     <button mat-stroked-button [ngStyle]="{'background-color':_options.buttonColor}" class="filter-button" (click)="triggerColumnFilter()">Filter</button>
-    <button mat-stroked-button [ngStyle]="{'background-color':_options.buttonColor}" class="filter-button" *ngIf="_options.enableBulkEdit" (click)="toggleBulkEdit()">Bulk Edit</button>
-    <button mat-stroked-button class="bg-dark filter-button" *ngIf="_options.enableBulkEdit && selection.hasValue()" (click)="toggleBulkUpdate()">Edit Seleted</button>
+    <button mat-stroked-button [ngStyle]="{'background-color':_options.buttonColor}" class="filter-button" *ngIf="enableBulkEdit" (click)="triggerBulkEdit()">Select Row</button>
+    <button mat-stroked-button class="bg-dark filter-button" *ngIf="enableBulkEdit && selection.hasValue()" (click)="triggerSelectedRowCallback()">Edit Selected</button>
     <mat-form-field *ngIf="_options.enableFilter">
       <mat-label>{{(fetching)?'Loading':'Filter'}}</mat-label>
       <input matInput (keyup)="applyFilter($event)" placeholder="Ex. sample" [disabled]="fetching">
@@ -53,7 +53,7 @@
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;" [ngClass]="{'selected':selection.isSelected(row)}" (click)="toggleRowSelect(row)"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" [ngClass]="{'selected':selection.isSelected(row)}" (click)="triggerRowSelect(row)"></tr>
   </table>
 
   <div class="mat-pag-container">

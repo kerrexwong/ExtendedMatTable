@@ -61,7 +61,10 @@ Add material theme:
 | enableFilter       | true          |
 | enableColumnFilter | true          |
 | hiddenColumnsIndex | number[]      |
-
+| allowMultiSelection| false         |
+| enableRowSelection | false         |
+| selectedRowCallback| function      |
+| returnColumnsOrderCallback| function      |
 <br>
 
 ```
@@ -69,7 +72,11 @@ import { Options } from 'extended-mat-table';
 
 
 public options:Options = {
-    hiddenColumnsIndex:[5]
+    hiddenColumnsIndex:[5],
+    selectedRowCallback:({tableId, selected})=>{
+    },
+    returnColumnsOrderCallback:({tableId, displayedColumns, availableColumns})=>{
+    }
   }
 ```
 
