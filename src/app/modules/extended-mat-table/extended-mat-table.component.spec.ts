@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ExtendedMatTableComponent } from './extended-mat-table.component';
+import { ExtendedMatTable } from './extended-mat-table.component';
 
-describe('ExtendedMatTableComponent', () => {
-  let component: ExtendedMatTableComponent;
-  let fixture: ComponentFixture<ExtendedMatTableComponent>;
+describe('ExtendedMatTable', () => {
+  let component: ExtendedMatTable;
+  let fixture: ComponentFixture<ExtendedMatTable>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ExtendedMatTableComponent ]
+      declarations: [ ExtendedMatTable ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ExtendedMatTableComponent);
+    fixture = TestBed.createComponent(ExtendedMatTable);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -58,7 +58,7 @@
 
   <div class="mat-pag-container">
     <mat-paginator [length]="length" [pageSize]="_options.pageSize" [pageSizeOptions]="pageSizeOptions" showFirstLastButtons (page)="paginationChange($event)"></mat-paginator>
-    <div class="fetching" [ngClass]="{'show_s':fetching}"><span>fetching data...</span></div>
+    <div class="fetching" [ngClass]="{'show_s':fetching}"><span>{{_options.fetching_text}}</span></div>
     <div class="go-to-container">
       <div class="go-to-label">Go To: </div>
       <mat-form-field>

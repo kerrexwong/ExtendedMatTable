@@ -11,10 +11,10 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
 import {MatTableModule} from '@angular/material/table';
 
-import { ExtendedMatTableComponent } from './extended-mat-table.component';
+import { ExtendedMatTable } from './extended-mat-table.component';
 
 @NgModule({
-  declarations: [ExtendedMatTableComponent],
+  declarations: [ExtendedMatTable],
   imports: [
     CommonModule,
     DragDropModule,
@@ -28,6 +28,6 @@ import { ExtendedMatTableComponent } from './extended-mat-table.component';
     MatSortModule,
     MatTableModule
   ],
-  exports:[ExtendedMatTableComponent]
+  exports:[ExtendedMatTable]
 })
 export class ExtendedMatTableModule { }

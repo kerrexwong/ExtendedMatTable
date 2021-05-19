@@ -24,8 +24,12 @@ import {
 import {Column, Options} from './extended-mat-table-interface';
 import * as moment from 'moment';
 
-@Component({selector: 'app-extended-mat-table', templateUrl: './extended-mat-table.component.html', styleUrls: ['./extended-mat-table.component.scss']})
-export class ExtendedMatTableComponent implements OnInit,
+@Component({
+    selector: 'app-extended-mat-table', 
+    templateUrl: './extended-mat-table.component.html', 
+    styleUrls: ['./extended-mat-table.component.scss']
+})
+export class ExtendedMatTable implements OnInit,
 AfterViewInit {
 
     @Input()options : Options = {};
@@ -69,7 +73,8 @@ AfterViewInit {
         enableFilter: true,
         enableColumnFilter: true,
         selectedRowCallback: null,
-        returnColumnsOrderCallback: null
+        returnColumnsOrderCallback: null,
+        fetching_text: 'fetching data...'
     };
 
     selection : any = new SelectionModel(this._options.allowMultiSelection, []);

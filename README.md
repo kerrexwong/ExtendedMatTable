@@ -48,7 +48,16 @@ Add material theme:
 
 ![Image of Demo](https://github.com/kerrexwong/ExtendedMatTable/raw/main/src/assets/screenshot.png)
 
+## Available Input
+| Variable           | Description |
+|--------------------|---------------|
+| data        | table data      |
+| columns       | table columns           |
+| options       | see belows           |
+| fetching       | see belows           |
 
+<br>
+<br>
 
 ## Available Options
 
@@ -65,6 +74,7 @@ Add material theme:
 | enableRowSelection | false         |
 | selectedRowCallback| function      |
 | returnColumnsOrderCallback| function      |
+| fetching_text| fetching data ...|
 <br>
 
 ```
@@ -82,4 +92,32 @@ public options:Options = {
 
 ```
 <app-extended-mat-table [data]="data" [columns]="column" [options]="options"></app-extended-mat-table>
+```
+
+## Fetching
+
+![Image of Demo](https://github.com/kerrexwong/ExtendedMatTable/raw/main/src/assets/fetching.gif)
+
+the text can be modified by options **fetching_text**
+
+this one can be used together with **addRows** function
+
+```
+<app-extended-mat-table [data]="data" [columns]="column" [options]="options" [fetching]="true"></app-extended-mat-table>
+```
+
+## Add Rows
+You can append data to table after initial
+
+```
+<app-extended-mat-table #dataTable [data]="data" [columns]="column" [options]="options"></app-extended-mat-table>
+```
+
+```
+import { Options, Column, ExtendedMatTable} from 'extended-mat-table';
+
+@ViewChild('dataTable') dataTable:ExtendedMatTable;
+
+this.dataTable.addRows([{}])
+
 ```
