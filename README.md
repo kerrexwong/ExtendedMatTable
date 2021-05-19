@@ -44,9 +44,11 @@ Add material theme:
 
 ## Demo
 
-[https://codesandbox.io/s/unruffled-glitter-z1xve?file=/src/app/app.component.html](https://codesandbox.io/s/unruffled-glitter-z1xve?file=/src/app/app.component.html)
+[https://codesandbox.io/s/unruffled-glitter-z1xve](https://codesandbox.io/s/unruffled-glitter-z1xve?file=/src/app/app.component.ts)
 
 ![Image of Demo](https://github.com/kerrexwong/ExtendedMatTable/raw/main/src/assets/screenshot.png)
+
+<br>
 
 ## Available Input
 | Variable           | Description |
@@ -93,10 +95,11 @@ public options:Options = {
 ```
 <app-extended-mat-table [data]="data" [columns]="column" [options]="options"></app-extended-mat-table>
 ```
+<br>
 
 ## Fetching
 
-![Image of Demo](https://github.com/kerrexwong/ExtendedMatTable/raw/main/src/assets/fetching.gif)
+![fetching](https://github.com/kerrexwong/ExtendedMatTable/raw/main/src/assets/fetching.gif)
 
 the text can be modified by options **fetching_text**
 
@@ -105,6 +108,8 @@ this one can be used together with **addRows** function
 ```
 <app-extended-mat-table [data]="data" [columns]="column" [options]="options" [fetching]="true"></app-extended-mat-table>
 ```
+
+<br>
 
 ## Add Rows
 You can append data to table after initial
@@ -120,4 +125,27 @@ import { Options, Column, ExtendedMatTable} from 'extended-mat-table';
 
 this.dataTable.addRows([{}])
 
+```
+
+<br>
+
+## Actions
+Add button in row
+<br>
+
+![Image of Demo](https://github.com/kerrexwong/ExtendedMatTable/raw/main/src/assets/actions.png)
+<br>
+
+```
+<app-extended-mat-table #dataTable [data]="data" [columns]="column" [actions]="actions"></app-extended-mat-table>
+```
+```
+public actions = [
+    {title:"Edit", action:(row)=>{
+      console.log(row)
+    }},
+    {title:"Delete", action:(row)=>{
+      console.log(row)
+    }}
+  ]
 ```

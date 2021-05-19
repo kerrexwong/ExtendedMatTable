@@ -47,7 +47,7 @@
       <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
       <td mat-cell *matCellDef="let element">
         <div class="d-flex">
-          <button *ngFor="let act_button of rowActions"  mat-stroked-button class="bg-light mr-2 ml-1" (click)="act_button.action(element);selection.toggle(element)" [disabled]="fetching">{{act_button.title}}</button>
+          <button *ngFor="let act_button of rowActions"  mat-stroked-button class="bg-light mr-2 ml-1" (click)="act_button.action(element);" [disabled]="fetching">{{act_button.title}}</button>
         </div>
       </td>
     </ng-container>
