@@ -1,9 +1,9 @@
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { AppComponent } from './app.component';
-import { ExtendedMatTableModule } from './modules/extended-mat-table/extended-mat-table.module';
+import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AppComponent } from './app.component';
 
+import { ExtendedMatTableModule } from './modules/extended-mat-table/extended-mat-table.module';
 
 @NgModule({
   declarations: [
@@ -11,8 +11,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   ],
   imports: [
     BrowserModule,
-    ExtendedMatTableModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ExtendedMatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
