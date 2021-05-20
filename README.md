@@ -77,6 +77,7 @@ Add material theme:
 | selectedRowCallback| function      |
 | returnColumnsOrderCallback| function      |
 | fetching_text| fetching data ...|
+| lineClamp | 4 |
 <br>
 
 ```
@@ -148,4 +149,24 @@ public actions = [
       console.log(row)
     }}
   ]
+```
+<br>
+
+## Wrap Text
+![Image of Wrap Text Demo](https://github.com/kerrexwong/ExtendedMatTable/raw/main/src/assets/wrap_text.png)
+
+use column **wrap_text** option to wrap text in a cell, specific number of lines by options **lineClamp**
+
+```
+  public column:Column[] = [
+    {title:'Code',data:'Code'},
+    {title:'Description',data:'Description', wrap_text:true}
+  ]
+
+```
+
+```
+public options:Options = {
+    lineClamp:4
+  }
 ```

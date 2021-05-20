@@ -189,7 +189,12 @@ td.cdk-column-actions {
 }
 
 .white-space-pre {
-  white-space: pre;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    // max-width: 350px;
 }
 
 .white-space-nowrap {

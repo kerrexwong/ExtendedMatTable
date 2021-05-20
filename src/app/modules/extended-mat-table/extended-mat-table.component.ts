@@ -74,7 +74,8 @@ AfterViewInit {
         enableColumnFilter: true,
         selectedRowCallback: null,
         returnColumnsOrderCallback: null,
-        fetching_text: 'fetching data...'
+        lineClamp:4,
+        fetching_text: 'fetching data...',
     };
 
     selection : any = new SelectionModel(this._options.allowMultiSelection, []);

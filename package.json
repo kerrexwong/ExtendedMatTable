@@ -1,6 +1,6 @@
 {
   "name": "extended-mat-table",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -10,7 +10,8 @@
     "angular",
     "dataTable",
     "material",
-    "mat-table"
+    "mat-table",
+    "angular 11"
   ],
   "author": "Kerrex<kerrex@gmail.com>",
   "scripts": {

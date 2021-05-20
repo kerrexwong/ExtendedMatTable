@@ -21,5 +21,6 @@ export interface Column {
     enableColumnFilter?: boolean;
     selectedRowCallback?: any;
     returnColumnsOrderCallback?: any;
+    lineClamp?: number;
     fetching_text?: string;
   }
