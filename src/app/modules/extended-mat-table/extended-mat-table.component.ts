@@ -188,7 +188,7 @@ AfterViewInit {
             }
             return pick(d, this.displayedColumns);
         })
-        var ws = utils.json_to_sheet(export_data);
+        var ws = utils.json_to_sheet(export_data,{header:this.displayedColumns});
         var wb = utils.book_new();
         utils.book_append_sheet(wb, ws, "Summary");
         let options = {};
